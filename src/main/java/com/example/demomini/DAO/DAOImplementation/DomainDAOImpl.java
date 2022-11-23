@@ -49,6 +49,25 @@ public class DomainDAOImpl implements DomainDAO {
         }
     }
 
+    @Override
+    public List<Domain> getDomainByID(int d_id) {
+        try {
+            Session session = HibernateSessionUtil.getSession();
+            List<Domain> domainList = new ArrayList<>();
+
+            System.out.println("checking"+d_id);
+            for (final Object d : session.createQuery("from Domain where domain_id ="+ d_id).list()) {
+                domainList.add((Domain) d);
+            }
+            return domainList;
+        }
+        catch (HibernateException ex) {
+            System.out.println("Unable to get Domain List : "+ex.getLocalizedMessage());
+
+            return null;
+        }
+    }
+
     //get all the courses by domain
     @Override
     public List<Course> getCourseList() {

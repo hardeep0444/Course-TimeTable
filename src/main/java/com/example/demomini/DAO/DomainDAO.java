@@ -10,4 +10,5 @@ public interface DomainDAO {
     boolean addDomain(Domain domObj);
     List<Domain> getDomainList();
     List<Course> getCourseList();
+    List<Domain> getDomainByID(int domain_id);
 }

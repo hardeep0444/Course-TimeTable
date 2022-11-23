@@ -29,7 +29,24 @@ public class DomainController {
     }
 
     @GET
-    @Path("/get")
+    @Path("/get/{d_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.TEXT_PLAIN)
+    public Response get_domain_by_ID(@PathParam("d_id") int d_id)
+    {
+        try {
+            List<Domain> domains = domDAO.getDomainByID(d_id);
+            if(domains == null)             return Response.status(400).entity("ERROR").build();
+
+            return Response.status(200).entity(domains.toString()).build();
+        }
+        catch (HibernateException ex) {
+            String s = "Error" + ex.getLocalizedMessage();
+            return Response.status(200).entity(s).build();
+        }
+    }
+    @GET
+    @Path("/get_all")
     @Produces(MediaType.APPLICATION_JSON)
     public Response get_all_domains()
     {
