@@ -31,4 +31,24 @@ public class CourseDAOImpl implements CourseDAO {
         }
 
     }
+
+    @Override
+    public List<Course> getCourseByID(int course_id) {
+        try {
+            Session session = HibernateSessionUtil.getSession();
+            List<Course> courseList = new ArrayList<>();
+
+            for (final Object d : session.createQuery("from Course where course_id ="+ course_id).list()) {
+                courseList.add((Course) d);
+            }
+            return courseList;
+        }
+        catch (HibernateException ex) {
+            System.out.println("Unable to get Domain List : "+ex.getLocalizedMessage());
+
+            return null;
+        }
+    }
+
+
 }

@@ -36,7 +36,7 @@ public class DomainController {
     {
         try {
             List<Domain> domains = domDAO.getDomainByID(d_id);
-            if(domains == null)             return Response.status(400).entity("ERROR").build();
+            if(domains == null)   return Response.status(400).entity("ERROR").build();
 
             return Response.status(200).entity(domains.toString()).build();
         }
