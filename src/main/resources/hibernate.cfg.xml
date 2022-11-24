@@ -16,5 +16,6 @@
         <mapping class="com.example.demomini.Bean.Course"/>
         <mapping class="com.example.demomini.Bean.Student"/>
         <mapping class="com.example.demomini.Bean.Domain"/>
+        <mapping class="com.example.demomini.Bean.Course_Schedule"/>
     </session-factory>
 </hibernate-configuration>

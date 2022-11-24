@@ -27,12 +27,16 @@ public class Course {
     @ManyToMany
     List<Student> studentsEnrolled = new ArrayList<>();
 
-    public Course(int course_id, String course_code, String course_name, String facultyName, List<Student> studentsEnrolled) {
+    @OneToMany(mappedBy = "course")
+    private List<Course_Schedule> courseSchedules;
+
+    public Course(int course_id, String course_code, String course_name, String facultyName, List<Student> studentsEnrolled, List<Course_Schedule> courseSchedules) {
         this.course_id = course_id;
         this.course_code = course_code;
         this.course_name = course_name;
         this.facultyName = facultyName;
         this.studentsEnrolled = studentsEnrolled;
+        this.courseSchedules = courseSchedules;
     }
 
     public Course() {
@@ -78,7 +82,14 @@ public class Course {
         this.studentsEnrolled = studentsEnrolled;
     }
 
-    @Override
+    public List<Course_Schedule> getCourseSchedules() {
+        return courseSchedules;
+    }
+
+    public void setCourseSchedules(List<Course_Schedule> courseSchedules) {
+        this.courseSchedules = courseSchedules;
+    }
+
     public String toString() {
         try {
             ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
