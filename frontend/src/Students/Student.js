@@ -27,11 +27,15 @@ export default function Student() {
   return (
     <div className="container">
       <div className="py-4">
+        <h3 align="left">
+          <u>Students Enrolled in {students[0].course_name} Course</u>
+        </h3>
+        <br></br>
         {students.map((course) => (
           <div key={course.course_id}>
             {/* {course.course_name} */}
-            <table className="table table-warning">
-              <thead>
+            <table className="table table-secondary shadow table-hover table-striped">
+              <thead className="table-dark">
                 <tr>
                   <th></th>
                   <th scope="col">Roll Number</th>
@@ -57,9 +61,12 @@ export default function Student() {
           </div>
         ))}
       </div>
-      <Link className="btn btn-primary mx-2" to={"/viewTimeTable/1"}>
+      {/* <Link
+        className="btn btn-primary mx-2"
+        to={`/viewTimeTable/${students[0].course_id}`}
+      >
         Back
-      </Link>
+      </Link> */}
     </div>
   );
 }

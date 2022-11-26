@@ -24,8 +24,8 @@ export default function Home() {
   return (
     <div className="container">
       <div className="py-4">
-        <table className="table table-warning shadow table-hover table-striped">
-          <thead>
+        <table className="table table-secondary shadow table-hover table-striped">
+          <thead className="table-dark">
             <tr>
               <th scope="col">Domain_ID</th>
               <th scope="col">Domain_Name</th>
@@ -39,7 +39,7 @@ export default function Home() {
                 <td>{domain.domain_name}</td>
                 <td>
                   <Link
-                    className="btn btn-primary mx-2"
+                    className="btn btn-secondary mx-2"
                     to={`/viewTimeTable/${domain.domain_id}`}
                   >
                     View

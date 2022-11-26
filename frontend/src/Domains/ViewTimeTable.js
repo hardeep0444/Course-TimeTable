@@ -47,7 +47,7 @@ export default function ViewTimeTable() {
 
             {domain.coursesOffered.map((course) => (
               <div key={course.course_id}>
-                <Link to={`/Student/${course.course_id}`}>
+                <Link alert alert-dark to={`/Student/${course.course_id}`}>
                   <h1>
                     <u>{course.course_name}</u>
                   </h1>
