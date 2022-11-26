@@ -26,17 +26,17 @@ export default function ViewTimeTable() {
   //   }
   // }
 
-  for (const { coursesOffered: n } of courses1) {
-    for (const { course_name: p, facultyName: f, courseSchedules: m } of n) {
-      console.log(p);
-      console.log(f);
-      for (const { day: k, time: l, room: r } of m) {
-        console.log(k);
-        console.log(l);
-        console.log(r);
-      }
-    }
-  }
+  // for (const { coursesOffered: n } of courses1) {
+  //   for (const { course_name: p, facultyName: f, courseSchedules: m } of n) {
+  //     console.log(p);
+  //     console.log(f);
+  //     for (const { day: k, time: l, room: r } of m) {
+  //       console.log(k);
+  //       console.log(l);
+  //       console.log(r);
+  //     }
+  //   }
+  // }
 
   return (
     <div className="container">
@@ -47,9 +47,16 @@ export default function ViewTimeTable() {
 
             {domain.coursesOffered.map((course) => (
               <div key={course.course_id}>
-                <h1>
-                  <u>{course.course_name}</u>
-                </h1>
+                <Link to={`/Student/${course.course_id}`}>
+                  <h1>
+                    <u>{course.course_name}</u>
+                  </h1>
+                </Link>
+                <h2>
+                  <i>
+                    <b>{course.facultyName}</b>
+                  </i>
+                </h2>
 
                 {course.courseSchedules.map((timing) => (
                   <div key={timing.id}>
@@ -63,6 +70,9 @@ export default function ViewTimeTable() {
           </div>
         );
       })}
+      <Link className="btn btn-primary my-2" to={"/"}>
+        Back To Previous Tab
+      </Link>
     </div>
   );
   // return (

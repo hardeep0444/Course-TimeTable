@@ -15,16 +15,16 @@ export default function Home() {
     );
     setDomains(result.data);
     // console.log(result.data);
-    console.log(Object.keys(domains).length);
+    // console.log(Object.keys(domains).length);
   };
   //console.log(courses);
-  for (const { domain_id: n } of domains) {
-    console.log(n);
-  }
+  // for (const { domain_id: n } of domains) {
+  //   console.log(n);
+  // }
   return (
     <div className="container">
       <div className="py-4">
-        <table className="table table-warning shadow table-hover table-striped">
+        <table className="table table-danger shadow table-hover table-striped">
           <thead>
             <tr>
               <th scope="col">Domain_ID</th>
