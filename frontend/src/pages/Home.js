@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <div className="container">
       <div className="py-4">
-        <table className="table table-danger shadow table-hover table-striped">
+        <table className="table table-warning shadow table-hover table-striped">
           <thead>
             <tr>
               <th scope="col">Domain_ID</th>
@@ -34,7 +34,7 @@ export default function Home() {
           </thead>
           <tbody>
             {domains.map((domain, index) => (
-              <tr>
+              <tr key={domain.domain_id}>
                 <td>{domain.domain_id}</td>
                 <td>{domain.domain_name}</td>
                 <td>

@@ -15,8 +15,14 @@ export default function Student() {
       `http://localhost:8080/demo/api/course/get/${id}`
     );
     setStudents(result.data);
-    console.log(result.data);
+    // console.log(result.data[0]);
+    // console.log(students);
   };
+  //   let obj = JSON.stringify(students[0]);
+
+  if (students.length == 0) return null;
+
+  console.log(students[0].course_id);
 
   return (
     <div className="container">
@@ -36,10 +42,9 @@ export default function Student() {
               </thead>
               <tbody>
                 {course.studentsEnrolled.map((student) => (
-                  <tr>
-                    <td>
-                      <div key={student.student_id}></div>
-                    </td>
+                  <tr key={student.student_id}>
+                    {/* <div key={student.student_id}></div> */}
+                    <td></td>
                     <td>{student.roll_number}</td>
                     <td>{student.first_name}</td>
                     <td>{student.last_name}</td>
@@ -52,9 +57,9 @@ export default function Student() {
           </div>
         ))}
       </div>
-      {/* <Link className="btn btn-primary mx-2" to={"/viewTimeTable/1"}>
+      <Link className="btn btn-primary mx-2" to={"/viewTimeTable/1"}>
         Back
-      </Link> */}
+      </Link>
     </div>
   );
 }
