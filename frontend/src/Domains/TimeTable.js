@@ -27,7 +27,7 @@ export default function TimeTable() {
   if (schedule == null) return;
 
   return (
-    <div className="cointainer">
+    <div className="container">
       <div>
         <h1 className="display-4">
           <b>Time Table</b>
@@ -37,21 +37,11 @@ export default function TimeTable() {
           <thead className="table-dark">
             <tr>
               <th scope="col">TIME</th>
-              <th style={{ width: "20%" }} scope="col">
-                MONDAY
-              </th>
-              <th style={{ width: "20%" }} scope="col">
-                TUESDAY
-              </th>
-              <th style={{ width: "20%" }} scope="col">
-                WEDNESDAY
-              </th>
-              <th style={{ width: "20%" }} scope="col">
-                THURSDAY
-              </th>
-              <th style={{ width: "20%" }} scope="col">
-                FRIDAY
-              </th>
+              <th scope="col">MONDAY</th>
+              <th scope="col">TUESDAY</th>
+              <th scope="col">WEDNESDAY</th>
+              <th scope="col">THURSDAY</th>
+              <th scope="col">FRIDAY</th>
             </tr>
           </thead>
 

@@ -1,3 +1,4 @@
+// this page has been used for viewing the courses and faculties
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
