@@ -27,7 +27,7 @@ public class Course {
     @ManyToMany
     List<Student> studentsEnrolled = new ArrayList<>();
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "course")
     private List<Course_Schedule> courseSchedules;
 
     public Course(int course_id, String course_code, String course_name, String facultyName, List<Student> studentsEnrolled, List<Course_Schedule> courseSchedules) {

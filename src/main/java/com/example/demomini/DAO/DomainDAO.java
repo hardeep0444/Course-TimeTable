@@ -11,4 +11,5 @@ public interface DomainDAO {
     List<Domain> getDomainList();
     List<Course> getCourseList();
     List<Domain> getDomainByID(int domain_id);
+    List<Course> getCoursesByDomain(int domain_id);
 }

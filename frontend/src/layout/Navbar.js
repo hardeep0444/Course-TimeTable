@@ -6,24 +6,24 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            IIITB Academic ERP
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <Link className="btn btn-success" to={"/"}>
-            Home
-          </Link>
+          <div className="col" align="left">
+            <a className="navbar-brand" href="/">
+              IIITB Academic ERP
+            </a>
+          </div>
+          <div className="col">
+            <a>
+              <img
+                src={require("/home/hardeep/ESD/demoMini/frontend/src/IIITB Silver Jubilee Logo.jpg")}
+                height="50px"
+              />
+            </a>
+          </div>
+          <div className="col" align="right">
+            <Link className="btn btn-success" to={"/"}>
+              Home
+            </Link>
+          </div>
         </div>
       </nav>
     </div>

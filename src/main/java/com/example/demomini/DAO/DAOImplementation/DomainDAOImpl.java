@@ -4,6 +4,7 @@ import com.example.demomini.Bean.Course;
 import com.example.demomini.Bean.Domain;
 import com.example.demomini.DAO.DomainDAO;
 import com.example.demomini.Util.HibernateSessionUtil;
+import jakarta.persistence.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -66,6 +67,28 @@ public class DomainDAOImpl implements DomainDAO {
 
             return null;
         }
+    }
+
+    @Override
+    public List<Course> getCoursesByDomain(int d_id) {
+        List<Course> c;
+        Session session = HibernateSessionUtil.getSession();
+        try{
+            Query query = session.createQuery("from Domain where domain_id=: d_id");
+            query.setParameter("d_id",d_id);
+            if(query.getResultList().size()==1) {
+                Domain d = (Domain) query.getResultList().get(0);
+                c = d.getCoursesOffered();
+                return c;
+            }
+        }
+        catch (HibernateException ex){
+            System.out.println(ex);
+        }
+        finally {
+            session.close();
+        }
+        return null;
     }
 
     //get all the courses by domain

@@ -18,7 +18,7 @@ public class Domain {
     @Column(nullable = false)
     private String domain_name;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "courses_domain")
     List<Course> coursesOffered = new ArrayList<>();
 

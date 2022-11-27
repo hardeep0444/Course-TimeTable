@@ -8,7 +8,9 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.hibernate.HibernateException;
+import org.json.JSONArray;
 
+import java.net.URISyntaxException;
 import java.util.List;
 
 @Path("/domain")
@@ -45,6 +47,22 @@ public class DomainController {
             return Response.status(200).entity(s).build();
         }
     }
+
+    @GET
+    @Path("/getschedule/{d_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getSchedule(@PathParam("d_id") int d_id) throws URISyntaxException {
+        System.out.println("Controller domainId : "+d_id);
+        GetSchedule g = new GetSchedule();
+        JSONArray jsonArray = g.getCourseSchedule(d_id);
+        if(jsonArray != null){
+            System.out.println(jsonArray.toString());
+            return Response.ok().entity(jsonArray.toString()).build();
+        }
+        else {
+            return Response.status(203).build();
+        }
+    }
     @GET
     @Path("/get_all")
     @Produces(MediaType.APPLICATION_JSON)
@@ -76,4 +94,6 @@ public class DomainController {
             return Response.status(200).entity(s).build();
         }
     }
+
+
 }
